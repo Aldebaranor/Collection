@@ -4,8 +4,10 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /hello/hello              --> emptyProject/controller/Hello.Hello (3 handlers)
+[GIN-debug] GET    /hello/hello              --> EmptyProject/controller/Hello.Hello (3 handlers)
+[GIN-debug] GET    /mqtt/sub                 --> EmptyProject/controller/Mqtt.(*MqttController).Subscribe-fm (3 handlers)
+[GIN-debug] POST   /mqtt/pub                 --> EmptyProject/controller/Mqtt.(*MqttController).Produce-fm (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8082
-[GIN] 2022/10/18 - 10:23:28 | 200 |            0s |       127.0.0.1 | GET      "/hello/hello"
+[GIN] 2022/10/18 - 17:36:15 | 200 |       652.4µs |       127.0.0.1 | POST     "/mqtt/pub"

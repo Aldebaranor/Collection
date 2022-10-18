@@ -1,4 +1,4 @@
-module emptyProject
+module EmptyProject
 
 go 1.19
 

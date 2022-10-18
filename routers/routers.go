@@ -2,7 +2,7 @@ package routers
 
 import (
 	"EmptyProject/controller/Hello"
-	"GinHello/controller"
+	"EmptyProject/controller/Mqtt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,8 +14,8 @@ func Routers() *gin.Engine {
 	}
 	MqttRouter := routers.Group("/mqtt")
 	{
-		MqttRouter.GET("/sub", controller.MqttControl.Subscribe)
-		MqttRouter.POST("/pub", controller.MqttControl.Produce)
+		MqttRouter.GET("/sub", Mqtt.MqttControl.Subscribe)
+		MqttRouter.POST("/pub", Mqtt.MqttControl.Produce)
 	}
 
 	return routers
