@@ -4,6 +4,7 @@ import (
 	"EmptyProject/global"
 	"EmptyProject/mapper/mysql"
 	"EmptyProject/mapper/postgres"
+	"EmptyProject/message/mqtt/config"
 	"EmptyProject/routers"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -17,7 +18,7 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupSetting err: %v", err)
 	}
-
+	config.InitMqtt()
 }
 
 func main() {
