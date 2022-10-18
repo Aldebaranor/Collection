@@ -2,12 +2,14 @@ package main
 
 import (
 	"emptyProject/global"
-	"emptyProject/mapper"
+	"emptyProject/mapper/mysql"
+	"emptyProject/mapper/postgres"
 	"emptyProject/routers"
 	"github.com/gin-gonic/gin"
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 func init() {
@@ -19,11 +21,16 @@ func init() {
 }
 
 func main() {
-	err := mapper.ConnectDB()
+	var err error
+	if strings.Compare(global.DataSourceSetting.Source, "mysql") == 0 {
+		err = mysql.ConnectDB()
+	} else {
+		err = postgres.ConnectDB()
+	}
 	if err != nil {
 		log.Printf("%+v", err)
 	}
-	defer mapper.Close()
+	defer mysql.Close()
 	f, _ := os.Create("./logs/logs.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 	gin.SetMode(global.ServerSetting.RunMode)
