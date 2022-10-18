@@ -1,7 +1,7 @@
 package config
 
 import (
-	"emptyProject/global"
+	"EmptyProject/global"
 	"fmt"
 	"github.com/eclipse/paho.mqtt.golang"
 )

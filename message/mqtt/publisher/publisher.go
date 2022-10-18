@@ -1,8 +1,8 @@
 package publisher
 
 import (
-	"emptyProject/global"
-	"emptyProject/message/mqtt/config"
+	"EmptyProject/global"
+	"EmptyProject/message/mqtt/config"
 )
 
 func Produce(msg string) {
