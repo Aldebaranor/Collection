@@ -1,7 +1,7 @@
 package postgres
 
 import (
-	"EmptyProject/global"
+	"Collection/global"
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"

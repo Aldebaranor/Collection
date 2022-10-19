@@ -1,8 +1,8 @@
 package Mqtt
 
 import (
-	"EmptyProject/message/mqtt/publisher"
-	"EmptyProject/message/mqtt/subscriber"
+	"Collection/message/mqtt/publisher"
+	"Collection/message/mqtt/subscriber"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )

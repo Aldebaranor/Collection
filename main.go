@@ -1,11 +1,11 @@
 package main
 
 import (
-	"EmptyProject/global"
-	"EmptyProject/mapper/mysql"
-	"EmptyProject/mapper/postgres"
-	"EmptyProject/message/mqtt/config"
-	"EmptyProject/routers"
+	"Collection/global"
+	"Collection/mapper/mysql"
+	"Collection/mapper/postgres"
+	"Collection/message/mqtt/config"
+	"Collection/routers"
 	"github.com/gin-gonic/gin"
 	"io"
 	"log"

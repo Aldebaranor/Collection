@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"EmptyProject/controller/Hello"
-	"EmptyProject/controller/Mqtt"
+	"Collection/controller/Hello"
+	"Collection/controller/Mqtt"
 	"github.com/gin-gonic/gin"
 )
 

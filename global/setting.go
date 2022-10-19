@@ -1,7 +1,7 @@
 package global
 
 import (
-	"EmptyProject/global/viper"
+	"Collection/global/viper"
 	"log"
 )
 

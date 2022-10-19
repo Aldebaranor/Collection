@@ -1,8 +1,8 @@
 package subscriber
 
 import (
-	"EmptyProject/global"
-	"EmptyProject/message/mqtt/config"
+	"Collection/global"
+	"Collection/message/mqtt/config"
 	"fmt"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 )

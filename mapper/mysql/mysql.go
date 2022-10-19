@@ -1,7 +1,7 @@
 package mysql
 
 import (
-	"EmptyProject/global"
+	"Collection/global"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"

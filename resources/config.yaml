@@ -1,6 +1,6 @@
 Server:
   RunMode: debug
-  HttpPort: 8082
+  HttpPort: 8083
 
 DataSource:
   source: postgres
