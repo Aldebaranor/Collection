@@ -22,6 +22,7 @@ func init() {
 }
 
 func main() {
+
 	var err error
 	if strings.Compare(global.DataSourceSetting.Source, "mysql") == 0 {
 		err = mysql.ConnectDB()
