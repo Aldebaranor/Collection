@@ -1,9 +1,9 @@
 package main
 
 import (
+	"Collection/dao/mysql"
+	"Collection/dao/postgres"
 	"Collection/global"
-	"Collection/mapper/mysql"
-	"Collection/mapper/postgres"
 	"Collection/message/mqtt/config"
 	"Collection/routers"
 	"github.com/gin-gonic/gin"
@@ -27,12 +27,15 @@ func main() {
 	if strings.Compare(global.DataSourceSetting.Source, "mysql") == 0 {
 		err = mysql.ConnectDB()
 	} else {
-		err = postgres.ConnectDB()
+		err = postgres.ConnectPGDB()
 	}
 	if err != nil {
 		log.Printf("%+v", err)
 	}
 	defer mysql.Close()
+	defer postgres.ClosePG()
+	//Collection.CollectionContr.ReadDb()
+
 	f, _ := os.Create("./logs/logs.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 	gin.SetMode(global.ServerSetting.RunMode)

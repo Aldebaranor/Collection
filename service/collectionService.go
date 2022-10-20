@@ -1,10 +1,14 @@
 package service
 
 import (
+	"Collection/dao/postgres"
+	"Collection/entiy"
+	"Collection/global"
+	"Collection/message/mqtt/publisher"
 	"Collection/utils/file"
-	"GinHello/mapper"
-	"GinHello/message/mqtt/producer"
-	"strings"
+	"encoding/json"
+	"log"
+	"strconv"
 )
 
 var (
@@ -14,14 +18,22 @@ var (
 type CollectionService struct {
 }
 
-func (t *CollectionService) sendMqtt() (err error) {
+func (t *CollectionService) SendMqtt() (err error) {
 	//读取offset
 	offset := file.ReadOffset()
-	//拼接sql
-	var build strings.Builder
-	build.WriteString("" + offset)
-	mapper.SqlSession.Exec(build.String())
+	//数据库表结构
+	var comments []entiy.Comment
+	//SELECT * FROM TABLE ORDER BY column LIMIT step OFFSET offset
+	postgres.PgSqlSession.Order(global.DataSourceSetting.Time).Limit(global.DataSourceSetting.Step).Offset(offset).Find(&comments)
+	size := len(comments)
+	//修改offset
+	newOffset, err := strconv.Atoi(offset)
+	newOffset += size
+	file.WriteOffset(strconv.Itoa(newOffset))
+	//
+	log.Println("%+v", comments)
+	msg, _ := json.Marshal(comments)
 	//发送mqtt
-	producer.Produce("")
+	publisher.Produce(msg)
 	return
 }

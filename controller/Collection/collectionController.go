@@ -1,5 +1,10 @@
 package Collection
 
+import (
+	"Collection/service"
+	"github.com/gin-gonic/gin"
+)
+
 var (
 	CollectionContr = &CollectionController{}
 )
@@ -7,7 +12,7 @@ var (
 type CollectionController struct {
 }
 
-func (p *CollectionController) ReadDb() {
-
+func (p *CollectionController) ReadDb(ctx *gin.Context) {
+	service.CollectionServ.SendMqtt()
 	return
 }

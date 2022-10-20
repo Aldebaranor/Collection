@@ -3,7 +3,10 @@ Server:
   HttpPort: 8083
 
 DataSource:
-  source: postgres
+  Source: postgres
+  TableName: public"."comment
+  Time: content
+  Step: 100
 
 Mysql:
   DriverName: mysql

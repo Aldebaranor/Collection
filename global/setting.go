@@ -12,7 +12,10 @@ type ServerSettings struct {
 }
 
 type DataSourceSettings struct {
-	Source string
+	Source    string
+	TableName string
+	Time      string
+	Step      string
 }
 
 type MysqlDbSettings struct {

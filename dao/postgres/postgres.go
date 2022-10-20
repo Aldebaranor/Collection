@@ -8,10 +8,10 @@ import (
 	"log"
 )
 
-var SqlSession *gorm.DB
+var PgSqlSession *gorm.DB
 
 // 连接数据库
-func ConnectDB() (err error) {
+func ConnectPGDB() (err error) {
 	DriverName := global.PostgresDbSetting.DriverName
 	Host := global.PostgresDbSetting.Host
 	Port := global.PostgresDbSetting.Port
@@ -20,14 +20,14 @@ func ConnectDB() (err error) {
 	Dbname := global.PostgresDbSetting.Dbname
 	Sslmode := global.PostgresDbSetting.Sslmode
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", Host, Port, User, Password, Dbname, Sslmode)
-	SqlSession, err = gorm.Open(DriverName, psqlInfo)
+	PgSqlSession, err = gorm.Open(DriverName, psqlInfo)
 	if err != nil {
 		log.Println("connectDBError", err)
 	}
-	return SqlSession.DB().Ping()
+	return PgSqlSession.DB().Ping()
 }
 
-func Close() {
-	SqlSession.Close()
+func ClosePG() {
+	PgSqlSession.Close()
 
 }
