@@ -7,7 +7,6 @@ import (
 	"Collection/message/mqtt/publisher"
 	"Collection/utils/file"
 	"encoding/json"
-	"log"
 	"strconv"
 )
 
@@ -31,7 +30,6 @@ func (t *CollectionService) SendMqtt() (err error) {
 	newOffset += size
 	file.WriteOffset(strconv.Itoa(newOffset))
 	//
-	log.Println("%+v", comments)
 	msg, _ := json.Marshal(comments)
 	//发送mqtt
 	publisher.Produce(msg)

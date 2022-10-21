@@ -16,3 +16,8 @@ func (p *CollectionController) ReadDb(ctx *gin.Context) {
 	service.CollectionServ.SendMqtt()
 	return
 }
+
+func (p *CollectionController) ReadPgDb() {
+	service.CollectionServ.SendMqtt()
+	return
+}

@@ -10,4 +10,3 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8083
-[GIN] 2022/10/20 - 17:46:48 | 200 |    5.1179373s |       127.0.0.1 | GET      "/collect/pg"
