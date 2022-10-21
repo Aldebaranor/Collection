@@ -9,7 +9,7 @@ import (
 func ReadOffset() string {
 	file := "./resources/offset.txt"
 	buf, _ := ioutil.ReadFile(file)
-	log.Println("Collection Program offset:")
+	log.Println("开始读取offset:")
 	fmt.Printf("起始offset为"+"%s\n", buf)
 	return string(buf)
 }
@@ -19,7 +19,7 @@ func WriteOffset(str string) {
 	d := []byte(str)
 	err := ioutil.WriteFile(file, d, 0666)
 	if err != nil {
-		fmt.Println("write offset fail")
+		fmt.Println("更新offset失败")
 	}
-	fmt.Println("write offset success")
+	fmt.Println("更新offset成功")
 }
